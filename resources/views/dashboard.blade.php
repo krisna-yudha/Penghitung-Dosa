@@ -156,7 +156,7 @@
             // List dosa
             var listDosa = [
                 "zina", "judi", "pedofil", "suka maling", "mencuri", "sodom",
-                "fandom gensin", "jadi wibu", "jadi anak skena", "makan babi","merodok teman", "amer enak", "jual sabu", "tolol", "makan buah zakar"
+                "fandom gensin", "jadi wibu", "Membangun tambang", "Memalsukan Ijazah", "jadi anak skena", "makan babi","merodok teman", "amer enak", "jual sabu", "tolol", "makan buah zakar"
             ];
             // Pilih dosa random dari list
             var dosaRandom = listDosa[Math.floor(Math.random() * listDosa.length)];

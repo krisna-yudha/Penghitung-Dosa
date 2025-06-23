@@ -73,7 +73,7 @@
     </style>
 </head>
 <body>
-    <h1>Leaderboard Para Pendosa</h1>
+    <h1>Leaderboard </h1>
     <div class="nav">
         <a href="{{ route('dashboard') }}">Kembali ke Dashboard</a>
         <a href="{{ route('pendosa.create') }}">Tambah Pendosa</a>
