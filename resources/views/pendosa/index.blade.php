@@ -42,6 +42,82 @@
             background: #00ff41;
             color: #111;
         }
+        
+        /* Heaven Button Special Styles */
+        .heaven-btn {
+            background: linear-gradient(135deg, rgba(135,206,250,0.8), rgba(255,215,0,0.8)) !important;
+            color: #fff !important;
+            border: 2px solid gold !important;
+            box-shadow: 0 0 20px rgba(255,215,0,0.8), 0 0 40px rgba(135,206,250,0.6) !important;
+            animation: heavenGlow 2s ease-in-out infinite;
+            position: relative;
+            overflow: visible;
+            padding: 12px 28px !important;
+        }
+        
+        .heaven-btn::before {
+            content: '✨';
+            position: absolute;
+            top: -10px;
+            left: -10px;
+            font-size: 20px;
+            animation: sparkle 3s linear infinite;
+        }
+        
+        .heaven-btn::after {
+            content: '✨';
+            position: absolute;
+            bottom: -10px;
+            right: -10px;
+            font-size: 20px;
+            animation: sparkle 3s linear infinite 1.5s;
+        }
+        
+        .heaven-btn:hover {
+            background: linear-gradient(135deg, rgba(255,255,255,0.95), rgba(255,215,0,0.95)) !important;
+            color: #000 !important;
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 0 30px rgba(255,215,0,1), 0 0 60px rgba(135,206,250,1), 0 10px 30px rgba(255,255,255,0.5) !important;
+            animation: heavenGlow 0.5s ease-in-out infinite, float 2s ease-in-out infinite;
+        }
+        
+        .heaven-btn:active {
+            transform: translateY(-2px) scale(1.02);
+            animation: heavenBurst 0.6s ease-out;
+        }
+        
+        @keyframes heavenGlow {
+            0%, 100% { 
+                box-shadow: 0 0 20px rgba(255,215,0,0.8), 0 0 40px rgba(135,206,250,0.6);
+            }
+            50% { 
+                box-shadow: 0 0 30px rgba(255,215,0,1), 0 0 60px rgba(135,206,250,0.9);
+            }
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(-5px) scale(1.05); }
+            50% { transform: translateY(-10px) scale(1.08); }
+        }
+        
+        @keyframes sparkle {
+            0% { transform: rotate(0deg) scale(1); opacity: 1; }
+            50% { transform: rotate(180deg) scale(1.5); opacity: 0.5; }
+            100% { transform: rotate(360deg) scale(1); opacity: 1; }
+        }
+        
+        @keyframes heavenBurst {
+            0% { 
+                box-shadow: 0 0 30px rgba(255,215,0,1), 0 0 60px rgba(135,206,250,1);
+            }
+            50% { 
+                box-shadow: 0 0 100px rgba(255,255,255,1), 0 0 150px rgba(255,215,0,1), 0 0 200px rgba(135,206,250,1);
+            }
+            100% { 
+                box-shadow: 0 0 30px rgba(255,215,0,1), 0 0 60px rgba(135,206,250,1);
+            }
+        }
+        
         table {
             margin: 40px auto;
             border-collapse: collapse;
@@ -76,7 +152,7 @@
     <h1>Leaderboard </h1>
     <div class="nav">
         <a href="{{ route('dashboard') }}">Kembali ke Dashboard</a>
-        <a href="{{ route('pendosa.create') }}">Tambah Pendosa</a>
+        <a href="{{ route('surga') }}" class="heaven-btn">Ingin Masuk Surga?</a>
     </div>
     <table>
         <tr>
