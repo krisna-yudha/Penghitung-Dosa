@@ -146,6 +146,74 @@
         tr:nth-child(odd) {
             background: rgba(20,20,20,0.7);
         }
+        
+        /* Search Box */
+        .search-container {
+            text-align: center;
+            margin: 30px auto;
+            max-width: 600px;
+        }
+        
+        .search-form {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+        }
+        
+        .search-input {
+            flex: 1;
+            padding: 12px 20px;
+            border: 2px solid #00ff41;
+            border-radius: 8px;
+            background: rgba(0,0,0,0.7);
+            color: #00ff41;
+            font-size: 1.1em;
+            outline: none;
+            backdrop-filter: blur(2px);
+        }
+        
+        .search-input::placeholder {
+            color: rgba(0,255,65,0.5);
+        }
+        
+        .search-input:focus {
+            box-shadow: 0 0 15px #00ff41;
+        }
+        
+        .search-btn {
+            padding: 12px 30px;
+            background: #00ff41;
+            color: #111;
+            border: 2px solid #00ff41;
+            border-radius: 8px;
+            font-weight: bold;
+            font-size: 1.1em;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        
+        .search-btn:hover {
+            background: transparent;
+            color: #00ff41;
+        }
+        
+        .clear-btn {
+            padding: 12px 25px;
+            background: rgba(255,0,0,0.7);
+            color: #fff;
+            border: 2px solid #ff0000;
+            border-radius: 8px;
+            font-weight: bold;
+            font-size: 1.1em;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.2s;
+        }
+        
+        .clear-btn:hover {
+            background: #ff0000;
+        }
     </style>
 </head>
 <body>
@@ -154,6 +222,25 @@
         <a href="{{ route('dashboard') }}">Kembali ke Dashboard</a>
         <a href="{{ route('surga') }}" class="heaven-btn">Ingin Masuk Surga?</a>
     </div>
+    
+    <!-- Search Box -->
+    <div class="search-container">
+        <form method="GET" action="{{ route('pendosa.index') }}" class="search-form">
+            <input 
+                type="text" 
+                name="search" 
+                class="search-input" 
+                placeholder="Cari nama pendosa..." 
+                value="{{ request('search') }}"
+                autocomplete="off"
+            >
+            <button type="submit" class="search-btn">🔍 Cari</button>
+            @if(request('search'))
+                <a href="{{ route('pendosa.index') }}" class="clear-btn">✖ Clear</a>
+            @endif
+        </form>
+    </div>
+    
     <table>
         <tr>
             <th>Peringkat</th>

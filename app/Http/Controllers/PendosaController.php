@@ -7,9 +7,16 @@ use Illuminate\Http\Request;
 
 class PendosaController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        $pendosa = \App\Models\Pendosa::orderBy('jumlah_dosa', 'desc')->get();
+        $query = Pendosa::query();
+        
+        // Filter by nama if search parameter exists
+        if ($request->has('search') && $request->search != '') {
+            $query->where('nama', 'like', '%' . $request->search . '%');
+        }
+        
+        $pendosa = $query->orderBy('jumlah_dosa', 'desc')->get();
         return view('pendosa.index', compact('pendosa'));
     }
 
